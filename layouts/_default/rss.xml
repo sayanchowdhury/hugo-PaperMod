@@ -64,7 +64,7 @@
     {{- with .OutputFormats.Get "RSS" }}
     {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML }}
     {{- end }}
-    {{- range $pages }}
+    {{- range where (where .Site.Pages ".Section" "blog") "Kind" "page" }}
     {{- if and (ne .Layout `search`) (ne .Layout `archives`) }}
     <item>
       <title>{{ .Title }}</title>

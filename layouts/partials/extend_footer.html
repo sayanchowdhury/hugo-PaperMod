@@ -1,3 +1,6 @@
 {{- /* Footer custom content area start */ -}}
-{{- /*     Insert any custom code web-analytics, resources, etc. here */ -}}
+{{- $carouselCss := (resources.Get "css/carousel.css") | resources.Minify }}
+{{- $carouselJs := (resources.Get "js/carousel.js") | resources.Minify }}
+<link rel="stylesheet" href="{{ $carouselCss.RelPermalink }}">
+<script src="{{ $carouselJs.RelPermalink }}" defer></script>
 {{- /* Footer custom content area end */ -}}
